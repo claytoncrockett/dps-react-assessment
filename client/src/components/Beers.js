@@ -8,11 +8,18 @@ import { Link } from 'react-router-dom';
 
 
 class Beers extends React.Component {
-  state = { beers: [], page: 12 }
+  state = { beers: [], page: 12, search:"" }
+
+
+  handleChange = (e) => {
+    const {target: {name, value}} = e;
+    this.setState({ [name]: value})
+  }
+  
 
 
   render() {
-    const { beers } = this.state
+    const { beers, search } = this.state
     return (
       <InfiniteScroll
         pageStart={0}
@@ -25,6 +32,13 @@ class Beers extends React.Component {
       >
         <div>
           <br />
+        <input
+          name="search"
+          placeholder="Search..."
+          value={search}
+          onChange={this.handleChange}  
+        />
+          <br /><br />
           <Card.Group itemsPerRow={3}>
             {beers.map((b, i) =>
               <Card key={i}>

@@ -23,6 +23,7 @@ class Brewery extends React.Component {
     return (
       <div>
         <br />
+
         <Card>
           <Card.Content>
             <Card.Header>

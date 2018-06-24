@@ -9,6 +9,7 @@ import Beers from './Beers'
 import Breweries from './Breweries'
 import Beer from './Beer'
 import Brewery from './Brewery'
+import Search from './Search'
 
 class App extends Component {
   render() {
@@ -22,6 +23,7 @@ class App extends Component {
           <Route exact path='/beers' component={Beers} />
           <Route exact path='/beers/:name' component={Beer} />
           <Route exact path='/breweries/:name' component={Brewery} />
+          <Route exact path='/search' component={Search} />
           <Route component={NoMatch} />
         </Switch>
       </Segment>
