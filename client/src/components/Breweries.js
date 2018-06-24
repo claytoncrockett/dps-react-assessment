@@ -5,18 +5,18 @@ import InfiniteScroll from 'react-infinite-scroller';
 
 
 
-class Beers extends React.Component {
-  state = { beers: [], page: 12 }
+class Breweries extends React.Component {
+  state = { breweries: [], page: 12 }
 
 
   render() {
-    const { beers } = this.state
+    const { breweries } = this.state
     return (
       <InfiniteScroll
         pageStart={0}
         loadMore={() => {
-          axios.get(`/api/all_beers?per_page=${this.state.page}`)
-            .then(res => this.setState({ beers: res.data.entries, page: this.state.page + 12 }))
+          axios.get(`/api/all_breweries?per_page=${this.state.page}`)
+            .then(res => this.setState({ breweries: res.data.entries, page: this.state.page + 12 }))
         }}
         hasMore={true || false}
         loader={<div className="loader" key={0}>Loading ...</div>}
@@ -24,7 +24,7 @@ class Beers extends React.Component {
         <div>
           <br />
           <Card.Group itemsPerRow={3}>
-            {beers.map((b, i) =>
+            {breweries.map((b, i) =>
               <Card key={i}>
                 <Card.Header>
                   {b.name}
@@ -45,4 +45,4 @@ class Beers extends React.Component {
 
 }
 
-export default Beers
+export default Breweries

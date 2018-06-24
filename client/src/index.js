@@ -11,8 +11,6 @@ import { injectGlobal } from 'styled-components';
 injectGlobal`
   html, body {
     background-color: black;
-    width: 100%;
-    height: 100%;
   }
 `
 
