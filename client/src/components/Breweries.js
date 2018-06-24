@@ -2,6 +2,9 @@ import React from 'react';
 import { Card } from 'semantic-ui-react'
 import axios from 'axios'
 import InfiniteScroll from 'react-infinite-scroller';
+import { Link } from 'react-router-dom';
+
+
 
 
 
@@ -27,7 +30,7 @@ class Breweries extends React.Component {
             {breweries.map((b, i) =>
               <Card key={i}>
                 <Card.Header>
-                  {b.name}
+                <Link to={`/breweries/${b.name}`}> {b.name} </Link>
                 </Card.Header>
                 <Card.Content extra>
                   {b.description}
