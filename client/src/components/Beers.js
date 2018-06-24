@@ -8,23 +8,23 @@ import { Link } from 'react-router-dom';
 
 
 class Beers extends React.Component {
-  state = { beers: [], page: 12, search:"", long: false, url: '/api/all_beers?per_page=' }
+  state = { beers: [], page: 12, search: "", long: false, url: '/api/all_beers?per_page=' }
 
 
   handleChange = (e) => {
-    const {target: {name, value}} = e;
-    this.setState({ [name]: value})
+    const { target: { name, value } } = e;
+    this.setState({ [name]: value })
     this.checkLength()
   }
 
-  checkLength() {
-    if (this.state.search.length >= 1){
-      this.setState({beers: [], long: true, url: `/api/search_beers?query=${this.state.search}&per_page=`, page:12})
-    } else{
-      this.setState({long: false, url: '/api/all_beers?per_page=', page:12})
+  checkLength = () => {
+    if (this.state.search.length >= 1) {
+      this.setState({ beers: [], long: true, url: `/api/search_beers?query=${this.state.search}&per_page=`, page: 12 })
+    } else {
+      this.setState({ long: false, url: '/api/all_beers?per_page=', page: 12 })
     }
   }
-  
+
 
 
   render() {
@@ -39,14 +39,14 @@ class Beers extends React.Component {
         hasMore={true || false}
         loader={<div className="loader" key={0}>Loading ...</div>}
       >
-        <div>
-          <br />
         <input
           name="search"
           placeholder="Search..."
           value={search}
-          onChange={this.handleChange}  
+          onChange={this.handleChange}
         />
+        <div>
+          <br />
           <br /><br />
           <Card.Group itemsPerRow={3}>
             {beers.map((b, i) =>
