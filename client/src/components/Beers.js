@@ -8,7 +8,7 @@ import { Link } from 'react-router-dom';
 
 
 class Beers extends React.Component {
-  state = { beers: [], page: 12, search: "", long: false, url: '/api/all_beers?per_page=' }
+  state = { beers: [], page: 12, search: '', long: false, url: '/api/all_beers?per_page=' }
 
 
   handleChange = (e) => {
